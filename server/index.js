@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const cors = require('cors');
 const express = require('express');
 require("./models/dbConnect");
 
@@ -8,6 +9,8 @@ const { answerQuestion, getResponses, getQuestionReponses } = require('./control
 
 const app = express();
 const PORT = 8000;
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
